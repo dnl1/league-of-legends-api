@@ -19,6 +19,6 @@ app.use(function (req, res, next) {
 
 routes(app);
 
-var server = app.listen(3002, function () {
+var server = app.listen(process.env.PORT || 3002, function () {
     console.log("app running on port.", server.address().port);
 });

@@ -12,16 +12,22 @@ var appRouter = function (app) {
     });
 
     app.get('/champions', function (req, res) {
-        http.get('/lol/static-data/v3/champions').then((response) => {
-                res.status(200).send(response.data);
-            })
-            .catch((err) => {
-                console.log('err', err);
-                if (err.response.status == 429) {
-                    res.status(304).send(require('../mocks/mockChampions'));
-                }
-                res.status(500).send(err);
-            })
+        // http.get('/lol/static-data/v3/champions').then((response) => {
+        //         res.status(200).send(response.data);
+        //     })
+        //     .catch((err) => {
+        //         console.log('err', err);
+        //         if (err.response.status == 429) {
+        //             let mock = require('../mocks/mockChampions');
+        //             console.log('mock', mock);
+        //             res.status(304).send(mock);
+        //         }
+        //         res.status(500).send(err);
+        //     })
+
+        let mock = require('../mocks/mockChampions');
+        console.log('mock', mock);
+        res.status(200).send(mock);
     })
 }
 

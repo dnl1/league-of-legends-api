@@ -2,13 +2,10 @@ let axios = require('axios');
 
 class Http {
     constructor() {
-        this.defaultHeaders = {
-            'Content-Type': 'application/json; charset=utf-8',
-            'X-Riot-Token': 'RGAPI-07dcb80d-088c-4674-aae7-77037317cece'
-        };
+        this.defaultHeaders = {};
 
         this._instance = axios.create({
-            baseURL: 'https://br1.api.riotgames.com',
+            baseURL: 'http://ddragon.leagueoflegends.com/cdn/11.20.1/data/en_US',
             timeout: 10000
         })
     }

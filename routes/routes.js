@@ -15,10 +15,10 @@ var appRouter = function (app) {
 
     app.get('/champions', function (req, res) {
         http.get('/champion.json').then((response) => {
-            cache = response.data.data;
-            var keys = Object.keys(cache);
+            cache = response.data;
+            var keys = Object.keys(cache.data);
             keys.forEach(key => {
-                cache[key].key = cache[key].id;
+                cache.data[key].key = cache.data[key].id;
             });
             res.status(200).send(cache);
         })
